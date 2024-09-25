@@ -1,0 +1,42 @@
+\mode<presentation>
+
+%%%%%%%%%%%% fonts
+
+%%%%%%%%%%%%%%%%%%% 字体系列
+% rmfamily 有衬线
+% sffamily 无衬线
+% ttfamily 等宽
+%%%%%%%%%%%%%%%%%%% 字体粗细
+% mdseries 常规粗细
+% bfseries 加粗
+%%%%%%%%%%%%%%%%%%% 字体格式
+% upshape 直立体
+% itshape 斜体
+% slshape 倾斜体，只是倾斜但是不改变字形
+% scshape 小型大写字母
+%%%%%%%%%%%%%%%%%%%
+
+\setbeamerfont{rm}{family=\rmfamily,series=\mdseries}
+\setbeamerfont{sf}{family=\sffamily,series=\mdseries}
+\setbeamerfont{tt}{family=\ttfamily,series=\mdseries}
+
+\setbeamerfont{title}{size=\LARGE,series=\bfseries,parent=rm}
+\setbeamerfont{subtitle}{size=\large,parent=title}
+
+\setbeamerfont{date}{size=\normalsize,series=\mdseries,parent=rm}
+\setbeamerfont{author}{size=\LARGE,parent=title,parent=rm}
+\setbeamerfont{institute}{size=\normalsize,series=\mdseries,parent=rm}
+
+\setbeamerfont{section in toc}{size=\Large,series=\bfseries,parent=sf}
+\setbeamerfont{section in head/foot}{size=\normalsize,parent={section in toc}}
+\setbeamerfont{subsection in toc}{size=\small,series=\mdseries,parent={section in toc}}
+
+\setbeamerfont{frametitle}{size=\huge,series=\bfseries,parent=title}
+\setbeamerfont{framesubtitle}{parent=frametitle,size=\Large}
+
+\setbeamerfont{caption}{size=\footnotesize, parent=tt}
+\setbeamerfont{item}{parent=structure,series=\mdseries}
+\setbeamerfont{block title}{size=\large,series=\mdseries,parent={tt,block body}}
+
+\mode
+<all>
