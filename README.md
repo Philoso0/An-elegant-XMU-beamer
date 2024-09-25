@@ -13,10 +13,11 @@ And this project is easy to deploy on your local tex enviornments.
 Few Need Your Attention:
 1. you should fill the title page info on the file ./Settings/initialization.tex
 2. you should check your local font library to check which fonts are available. For MacOS, open your terminal and type code below to check. The font name **must** be the same with your local fonts'
-'''
-fc-list -f "%{family}\n" :lang=zh > ./Desktop/zhfont.txt
-fc-list -f "%{family}\n" :lang=en > ./Desktop/enfont.txt
-'''
+
+> fc-list -f "%{family}\n" :lang=zh > ./Desktop/zhfont.txt
+> 
+> fc-list -f "%{family}\n" :lang=en > ./Desktop/enfont.txt
+
 3. there are four .sty file to define the beamer parameters. The major file is beamerinnertheme and the other files are to define colors, fonts, and applying all sty files.
 4. Tikz are widely used in bearinnerthemeXMU
 
