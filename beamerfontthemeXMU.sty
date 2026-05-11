@@ -1,42 +1,44 @@
 \mode<presentation>
 
-%%%%%%%%%%%% fonts
+%%%%%%%%%%%% 基础字体族设置 %%%%%%%%%%%%
+% rmfamily: 有衬线（正文推荐）
+% sffamily: 无衬线（标题/导航）
+% ttfamily: 等宽（代码）
 
-%%%%%%%%%%%%%%%%%%% 字体系列
-% rmfamily 有衬线
-% sffamily 无衬线
-% ttfamily 等宽
-%%%%%%%%%%%%%%%%%%% 字体粗细
-% mdseries 常规粗细
-% bfseries 加粗
-%%%%%%%%%%%%%%%%%%% 字体格式
-% upshape 直立体
-% itshape 斜体
-% slshape 倾斜体，只是倾斜但是不改变字形
-% scshape 小型大写字母
-%%%%%%%%%%%%%%%%%%%
+\setbeamerfont{normal text}{family=\rmfamily,size=\normalsize,series=\mdseries}
 
 \setbeamerfont{rm}{family=\rmfamily,series=\mdseries}
 \setbeamerfont{sf}{family=\sffamily,series=\mdseries}
 \setbeamerfont{tt}{family=\ttfamily,series=\mdseries}
 
-\setbeamerfont{title}{size=\LARGE,series=\bfseries,parent=rm}
-\setbeamerfont{subtitle}{size=\large,parent=title}
+%%%%%%%%%%%% 标题系统 %%%%%%%%%%%%
 
-\setbeamerfont{date}{size=\normalsize,series=\mdseries,parent=rm}
-\setbeamerfont{author}{size=\LARGE,parent=title,parent=rm}
-\setbeamerfont{institute}{size=\normalsize,series=\mdseries,parent=rm}
+\setbeamerfont{title}{family=\rmfamily,size=\LARGE,series=\bfseries}
+\setbeamerfont{subtitle}{size=\Large,parent=title}
 
-\setbeamerfont{section in toc}{size=\Large,series=\bfseries,parent=sf}
+\setbeamerfont{author}{size=\LARGE,parent=title}
+\setbeamerfont{institute}{size=\normalsize,series=\bfseries,parent=rm}
+\setbeamerfont{date}{size=\normalsize,parent=rm}
+
+%%%%%%%%%%%% Frame 标题 %%%%%%%%%%%%
+
+\setbeamerfont{frametitle}{size=\huge,series=\bfseries,parent=rm}
+\setbeamerfont{framesubtitle}{size=\Large,parent=frametitle}
+
+%%%%%%%%%%%% 目录 / 导航 %%%%%%%%%%%%
+
+\setbeamerfont{section in toc}{family=\sffamily,size=\Large,series=\bfseries}
 \setbeamerfont{section in head/foot}{size=\normalsize,parent={section in toc}}
 \setbeamerfont{subsection in toc}{size=\small,series=\mdseries,parent={section in toc}}
 
-\setbeamerfont{frametitle}{size=\huge,series=\bfseries,parent=title}
-\setbeamerfont{framesubtitle}{parent=frametitle,size=\Large}
+%%%%%%%%%%%% 正文与元素 %%%%%%%%%%%%
+\setbeamerfont{normal text}{size=\normalsize,series=\mdseries}
+\setbeamerfont{item}{size=\normalsize,series=\mdseries,parent=normal text}
+\setbeamerfont{caption}{size=\footnotesize,parent=tt}
 
-\setbeamerfont{caption}{size=\footnotesize, parent=tt}
-\setbeamerfont{item}{parent=structure,series=\mdseries}
-\setbeamerfont{block title}{size=\large,series=\mdseries,parent={tt,block body}}
+%%%%%%%%%%%% Block %%%%%%%%%%%%
 
-\mode
-<all>
+\setbeamerfont{block title}{size=\large,series=\bfseries}
+\setbeamerfont{block body}{size=\normalsize,parent=normal text}
+
+\mode<all>
