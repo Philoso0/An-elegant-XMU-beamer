@@ -12,10 +12,27 @@
 \usepackage{tikz}
 \usepackage{makecell}
 \usepackage{wrapfig}
+\usepackage{multirow, makecell}
+\usepackage{ragged2e}
+\usepackage{subcaption}
+\usepackage{subcaption}
+\usepackage{colortbl}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage[backend=bibtex,style=numeric]{biblatex}
+\setbeamertemplate{bibliography item}{[\printfield{labelnumber}]}
+\input{Settings/fontsetting} % font configuration
+\input{Settings/initialization} %title page configuration
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{caption label separator}{: }
+\setbeamerfont{caption}{size=\footnotesize}
+\setbeamerfont{caption name}{shape=\itshape}
+\renewcommand{\figurename}{Fig}
+\renewcommand{\tablename}{Tab}
 
 \input{Settings/fontsetting} % font configuration
 \input{Settings/initialization} %title page configuration
-
+\addbibresource{reference.bib}
 %----------------------------------------------------------------------------------------
 %	PRESENTATION SLIDES
 %----------------------------------------------------------------------------------------
@@ -173,27 +190,14 @@
     \frametitle{Citation}
     An example of the \verb|\cite| command to cite within the presentation:\\~
 
-    This statement requires citation \cite{p1}.
+    This statement requires citation\cite{Radford2021clip}.
 \end{frame}
 
 %------------------------------------------------
 % Refenrenced
-\begin{frame}{References}
-    % Beamer does not support BibTeX so references must be inserted manually as below
-    \footnotesize{
-        \begin{thebibliography}{99}
-            \bibitem[Smith, 2012]{p1} John Smith (2012)
-            \newblock Title of the publication
-            \newblock \emph{Journal Name} 12(3), 45 -- 678.
-
-            \bibitem[Doe, 2012]{p1} Joe Doe (2012)
-            \newblock Title of the publication
-            \newblock \emph{Journal Name} 12(3), 45 -- 678.
-            \bibitem[Doe, 2013]{p} Jane Doe (2012)
-            \newblock Title of the publication
-            \newblock \emph{Journal Name} 12(3), 45 -- 678.
-        \end{thebibliography}
-    }
+\begin{frame}[allowframebreaks]{References}
+    \footnotesize
+    \printbibliography
 \end{frame}
 
 %----------------------------------------------------------------------------------------
