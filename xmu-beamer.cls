@@ -52,9 +52,9 @@
 \newcommand{\xmu@setfont}[3]{%
   \IfFontExistsTF{#1}{#3{#1}}{#3{#2}}%
 }
-\xmu@setfont{Times New Roman}{TeX Gyre Termes}{\setmainfont}
-\xmu@setfont{Helvetica Neue}{TeX Gyre Heros}{\setsansfont}
-\xmu@setfont{Menlo}{Latin Modern Mono}{\setmonofont}
+\xmu@setfont{Times New Roman}{Latin Modern Roman}{\setmainfont}
+\xmu@setfont{Arial}{Latin Modern Sans}{\setsansfont}
+\xmu@setfont{JetBrains Mono}{Latin Modern Mono}{\setmonofont}
 
 \IfFontExistsTF{Songti SC}
   {\setCJKmainfont{Songti SC}}
@@ -101,14 +101,14 @@
 \setbeamerfont{normal text}{family=\rmfamily,size=\normalsize,series=\mdseries}
 \setbeamerfont{title}{family=\sffamily,size=\LARGE,series=\bfseries}
 \setbeamerfont{subtitle}{family=\sffamily,size=\large,series=\mdseries}
-\setbeamerfont{author}{family=\sffamily,size=\large,series=\mdseries}
-\setbeamerfont{institute}{family=\sffamily,size=\normalsize,series=\mdseries}
-\setbeamerfont{date}{family=\sffamily,size=\normalsize,series=\mdseries}
-\setbeamerfont{frametitle}{family=\sffamily,size=\Large,series=\bfseries}
+\setbeamerfont{author}{family=\rmfamily,size=\Large,series=\mdseries}
+\setbeamerfont{institute}{family=\rmfamily,size=\normalsize,series=\mdseries}
+\setbeamerfont{date}{family=\rmfamily,size=\normalsize,series=\mdseries}
+\setbeamerfont{frametitle}{family=\sffamily,size=\LARGE,series=\bfseries}
 \setbeamerfont{framesubtitle}{family=\sffamily,size=\normalsize,series=\mdseries}
 \setbeamerfont{section in toc}{family=\sffamily,size=\large,series=\bfseries}
 \setbeamerfont{subsection in toc}{family=\sffamily,size=\small,series=\mdseries}
-\setbeamerfont{section in head/foot}{family=\sffamily,size=\scriptsize,series=\mdseries}
+\setbeamerfont{section in head/foot}{family=\rmfamily,size=\scriptsize,series=\mdseries}
 \setbeamerfont{item}{parent=normal text}
 \setbeamerfont{caption}{family=\sffamily,size=\footnotesize}
 \setbeamerfont{caption name}{family=\sffamily,size=\footnotesize,series=\bfseries}
@@ -122,7 +122,7 @@
 
 \pgfdeclareverticalshading[lower.bg,upper.bg]{bmb@transition}{200cm}{%
   color(0pt)=(lower.bg); color(2pt)=(lower.bg); color(4pt)=(lower.bg)}
-\setbeamersize{text margin left=2em,text margin right=2em}
+\setbeamersize{text margin left=1em,text margin right=1em}
 \setbeamertemplate{section in toc}[sections numbered]
 \setbeamertemplate{subsection in toc}{%
   \leavevmode\leftskip=3.2em%
@@ -137,6 +137,18 @@
 \setbeamertemplate{bibliography item}{[\printfield{labelnumber}]}
 \renewcommand{\figurename}{Fig}
 \renewcommand{\tablename}{Tab}
+
+\newif\ifxmubeamerdebuglayout
+\xmubeamerdebuglayoutfalse
+\newcommand{\xmubeamerdebugbox}[2][NeonCarrot]{%
+  \ifxmubeamerdebuglayout
+    {\setlength{\fboxsep}{0pt}%
+     \setlength{\fboxrule}{0.4pt}%
+     \color{#1}\fbox{#2}}%
+  \else
+    #2%
+  \fi
+}
 
 \setbeamertemplate{frametitle}{%
   \insertframetitle
@@ -153,11 +165,11 @@
 }
 
 \setbeamertemplate{footline}{%
-  \begin{beamercolorbox}[ht=3em,sep=0.75em,wd=\paperwidth,leftskip=0.5cm,rightskip=0.5cm]{footlinecolor}
+  \begin{beamercolorbox}[sep=1em,wd=\paperwidth,leftskip=1em,rightskip=1em]{footlinecolor}
     {\usebeamerfont{section in head/foot}\insertshortinstitute}
     \hfill
     {\usebeamerfont{section in head/foot}\insertframenumber/\inserttotalframenumber}
-  \end{beamercolorbox}%
+  \end{beamercolorbox}
 }
 
 \setbeamertemplate{column_heading}{%
@@ -167,89 +179,104 @@
 }
 
 \setbeamertemplate{title page}{%
-  \vspace{5em}
-  \begingroup
-    \centering
-    \begin{beamercolorbox}[sep=8pt,left]{title}
-      \usebeamerfont{title}\inserttitle\par
-      \ifx\insertsubtitle\@empty
-      \else
-        \vskip0.45em
-        {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}
-      \fi
-    \end{beamercolorbox}
-    \vskip1.5em\par
-    \begin{beamercolorbox}[sep=8pt,left]{author}
-      \usebeamerfont{author}\insertauthor
-    \end{beamercolorbox}
-    \vskip2.5em\par
-    \begin{beamercolorbox}[sep=8pt,wd=\linewidth]{institute}
-      \usebeamerfont{institute}\insertinstitute
-      \hfill
-      \makebox[0pt][r]{\usebeamerfont{date}\insertdate\hspace*{0.12\linewidth}}
-    \end{beamercolorbox}
-    \titlegraphic{%
-      \begin{tikzpicture}[overlay,remember picture]
-        \node[anchor=north west,outer xsep=25pt,outer ysep=25pt] at (current page.north west){%
-          \includegraphics[width=5cm]{xmulogo/xmu-zi-jiageng white.pdf}%
-        };
-      \end{tikzpicture}%
-    }%
-    {\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}
-  \endgroup
-  \vfill
+  \titlegraphic{%
+    \begin{tikzpicture}[overlay,remember picture]
+      \node[anchor=north west,outer xsep=0.7em,outer ysep=1em] at (current page.north west){%
+        \includegraphics[width=5cm]{xmulogo/xmu-zi-jiageng white.pdf}%
+      };
+    \end{tikzpicture}%
+  }%
+  \usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par
+
+  \vbox to 0.95\paperheight{%
+    \vspace*{6em}
+    \xmubeamerdebugbox[NeonCarrot]{%
+      \begin{beamercolorbox}[left,wd=0.8\linewidth]{title}
+        \usebeamerfont{title}\inserttitle\par
+        \ifx\insertsubtitle\@empty
+        \else
+          \vskip0.45em
+          {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}
+        \fi
+      \end{beamercolorbox}%
+    }
+    \vfill
+    \xmubeamerdebugbox[Cerulean]{%
+      \begin{beamercolorbox}[left,wd=0.5\linewidth]{author}
+        \usebeamerfont{author}\insertauthor
+      \end{beamercolorbox}%
+    }
+    \vfill
+    \xmubeamerdebugbox[YellowGreen]{%
+      \begin{beamercolorbox}[wd=0.8\linewidth]{institute}
+        \usebeamerfont{institute}\insertinstitute
+        \hfill
+        \usebeamerfont{date}\insertdate
+      \end{beamercolorbox}%
+    }
+    \vspace*{0pt}
+  }%
 }
 
 \setbeamertemplate{section divider}{%
   \logo{%
     \begin{tikzpicture}[overlay,remember picture]
-      \node[anchor=north west,outer xsep=25pt,outer ysep=20pt] at (current page.north west){%
-        \includegraphics[width=4cm]{xmulogo/xmu-zi-jiageng white.pdf}%
+      \node[anchor=north west,outer xsep=0.7em,outer ysep=1em] at (current page.north west){%
+        \includegraphics[width=5cm]{xmulogo/xmu-zi-jiageng white.pdf}%
       };
     \end{tikzpicture}%
   }%
-  \vspace{8em}
-  \begin{beamercolorbox}[sep=0pt,left]{sectionDivider}
-    \usebeamerfont{frametitle}\insertsectionhead\par
-  \end{beamercolorbox}
-  \gradientline\par
-  \vspace{5em}
-  \setbeamercolor{footlinecolor}{fg=white}
-  \begin{beamercolorbox}[ht=1em,sep=8pt,wd=\paperwidth,leftskip=0.5cm,rightskip=0.5cm]{footlinecolor}
-    {\usebeamerfont{section in head/foot}\insertshortinstitute}
-    \hfill
-  \end{beamercolorbox}
   {\usebeamercolor[fg]{titlegraphic}\insertlogo\par}
+
+  \vbox to 0.95\paperheight{%
+  \vspace*{11em}
+  \xmubeamerdebugbox[NeonCarrot]{%
+    \begin{beamercolorbox}[left,wd=0.8\linewidth]{sectionDivider}
+      \usebeamerfont{frametitle}\insertsectionhead\par
+    \end{beamercolorbox}}
+  \gradientline\par
+  \vfill
+  \setbeamercolor{footlinecolor}{fg=white}
+  \xmubeamerdebugbox[Cerulean]{%
+    \begin{beamercolorbox}[wd=0.8\linewidth]{footlinecolor}
+      {\usebeamerfont{section in head/foot}\insertshortinstitute}
+    \end{beamercolorbox}}
+  }
 }
 
 \setbeamertemplate{endpage}{%
-  \vspace{4.5em}
-  \begingroup
-    \centering
-    \begin{beamercolorbox}[sep=8pt,left]{title}
-      \vskip1.5em\par
-      \usebeamerfont{title}\finalpage\par
-    \end{beamercolorbox}
-    \vskip1.5em\par
-    \begin{beamercolorbox}[sep=8pt,left]{author}
-      \usebeamerfont{author}\insertauthor
-    \end{beamercolorbox}
-    \vskip1em\par
-    \begin{beamercolorbox}[sep=8pt,wd=\linewidth]{institute}
-      \usebeamerfont{institute}\insertinstitute
-      \hfill
-      \makebox[0pt][r]{\usebeamerfont{date}\insertdate\hspace*{0.12\linewidth}}
-    \end{beamercolorbox}
-    \titlegraphic{%
-      \begin{tikzpicture}[overlay,remember picture]
-        \node[anchor=north west,outer xsep=25pt,outer ysep=25pt] at (current page.north west){%
-          \includegraphics[width=5cm]{xmulogo/xmu-zi-jiageng white.pdf}%
-        };
-      \end{tikzpicture}%
-    }%
-    {\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}
-  \endgroup
-  \vfill
+  \titlegraphic{%
+    \begin{tikzpicture}[overlay,remember picture]
+      \node[anchor=north west,outer xsep=0.7em,outer ysep=1em] at (current page.north west){%
+        \includegraphics[width=5cm]{xmulogo/xmu-zi-jiageng white.pdf}%
+      };
+    \end{tikzpicture}%
+  }%
+  {\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}
+
+  \vbox to 0.95\paperheight{
+    \vspace*{8em}
+    \xmubeamerdebugbox[NeonCarrot]{%
+      \begin{beamercolorbox}[left,wd=0.8\linewidth]{title}
+        \usebeamerfont{title}\finalpage\par
+      \end{beamercolorbox}
+    }
+    \vfill
+    \xmubeamerdebugbox[Cerulean]{%
+      \begin{beamercolorbox}[left,wd=0.8\linewidth]{author}
+        \usebeamerfont{author}\insertauthor
+      \end{beamercolorbox}
+    }
+    \vfill
+    \xmubeamerdebugbox[YellowGreen]{%
+      \begin{beamercolorbox}[wd=0.8\linewidth]{institute}
+        \usebeamerfont{institute}\insertinstitute
+        \hfill
+        \usebeamerfont{date}\insertdate
+      \end{beamercolorbox}
+    }
+    \vspace*{0pt}
+  }
 }
 
 \newcommand{\gradientline}{\noindent
