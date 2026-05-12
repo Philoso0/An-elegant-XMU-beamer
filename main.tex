@@ -1,6 +1,5 @@
 \documentclass{xmu-beamer}
-\xmubeamerdebuglayouttrue
-% \xmubeamerdebuglayoutfalse
+% \xmubeamerdebuglayouttrue % 调试用
 % Presentation metadata.
 \title[Short Title]{Main Title of Your Presentation}
 \subtitle{Subtitle}
@@ -9,6 +8,21 @@
 \date{\today}
 
 \addbibresource{reference.bib}
+\usepackage{listings}
+\lstset{
+    basicstyle=\ttfamily\footnotesize,
+    keywordstyle=\color{PrussianBlue},
+    commentstyle=\color{gray},
+    stringstyle=\color{NeonCarrot},
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    frame=single,
+    rulecolor=\color{LightGrayishBlue},
+    backgroundcolor=\color{Solitude},
+    showstringspaces=false,
+    breaklines=true,
+    tabsize=4
+}
 
 \begin{document}
 
@@ -33,6 +47,23 @@
     \textsf{This is English sans-serif text.}
 
     \texttt{This is English monospaced text.}
+\end{frame}
+
+\begin{frame}[fragile]{Code Listing}
+    \begin{lstlisting}[language=Python]
+def normalize_scores(scores):
+    """Scale a list of scores to the range [0, 1]."""
+    # 中文注释
+    lo = min(scores)
+    hi = max(scores)
+    if hi == lo:
+        return [0.0 for _ in scores]
+
+    return [(score - lo) / (hi - lo) for score in scores]
+
+values = [72, 88, 91, 67]
+print(normalize_scores(values))
+    \end{lstlisting}
 \end{frame}
 
 \begin{frame}{Bullet Points}

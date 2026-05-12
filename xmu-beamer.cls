@@ -35,12 +35,14 @@
 \RequirePackage{tikz}
 \RequirePackage{makecell}
 \RequirePackage{wrapfig}
+\RequirePackage{subfig}
 \RequirePackage{multirow}
 \RequirePackage{ragged2e}
 \RequirePackage{subcaption}
 \RequirePackage{colortbl}
 \RequirePackage{amsmath}
 \RequirePackage{pifont}
+\RequirePackage{listings}
 \RequirePackage[backend=bibtex,style=numeric]{biblatex}
 
 \mode<presentation>
@@ -52,23 +54,14 @@
 \newcommand{\xmu@setfont}[3]{%
   \IfFontExistsTF{#1}{#3{#1}}{#3{#2}}%
 }
+
 \xmu@setfont{Times New Roman}{Latin Modern Roman}{\setmainfont}
 \xmu@setfont{Arial}{Latin Modern Sans}{\setsansfont}
 \xmu@setfont{JetBrains Mono}{Latin Modern Mono}{\setmonofont}
 
-\IfFontExistsTF{Songti SC}
-  {\setCJKmainfont{Songti SC}}
-  {}
-\IfFontExistsTF{PingFang SC}
-  {\setCJKsansfont{PingFang SC}}
-  {%
-    \IfFontExistsTF{Heiti SC}
-      {\setCJKsansfont{Heiti SC}}
-      {\IfFontExistsTF{Songti SC}{\setCJKsansfont{Songti SC}}{}}%
-  }
-\IfFontExistsTF{Kaiti SC}
-  {\setCJKmonofont{Kaiti SC}}
-  {\IfFontExistsTF{Songti SC}{\setCJKmonofont{Songti SC}}{}}
+\setCJKmainfont{Songti SC}
+\setCJKsansfont{Heiti SC}
+\setCJKmonofont{KaiTi}
 
 \definecolor{VeryPaleOrange}{rgb}{1,0.933,0.867}
 \definecolor{LightGrayishBlue}{rgb}{0.929,0.914,1}

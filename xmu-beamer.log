@@ -1,4 +1,4 @@
-This is TeX, Version 3.141592653 (TeX Live 2026) (preloaded format=tex 2026.3.22)  12 MAY 2026 22:42
+This is TeX, Version 3.141592653 (TeX Live 2026) (preloaded format=tex 2026.3.22)  12 MAY 2026 23:20
 **xmu-beamer.ins
 (./xmu-beamer.ins
 (/usr/local/texlive/2026/texmf-dist/tex/latex/base/docstrip.tex
@@ -54,10 +54,10 @@ Generating file(s) xmu-beamer.cls
 
 Processing file xmu-beamer.dtx (class) -> xmu-beamer.cls
 File xmu-beamer.dtx ended by \endinput.
-Lines  processed: 379
-Comments removed: 36
+Lines  processed: 371
+Comments removed: 35
 Comments  passed: 0
-Codelines passed: 340
+Codelines passed: 333
 
  )
 No pages of output.
