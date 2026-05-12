@@ -20,6 +20,12 @@
 tex xmu-beamer.ins
 ```
 
+注意：不要用 `xetex xmu-beamer.dtx` 生成类文件。`dtx` 文档本身需要 LaTeX 格式；如果要编译源码文档，应使用：
+
+```bash
+xelatex xmu-beamer.dtx
+```
+
 再编译示例文稿：
 
 ```bash

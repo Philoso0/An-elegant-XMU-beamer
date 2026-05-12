@@ -167,14 +167,14 @@
 }
 
 \setbeamertemplate{title page}{%
-  \vspace{5.5em}
+  \vspace{5em}
   \begingroup
     \centering
     \begin{beamercolorbox}[sep=8pt,left]{title}
       \usebeamerfont{title}\inserttitle\par
       \ifx\insertsubtitle\@empty
       \else
-        \vskip0.35em
+        \vskip0.45em
         {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}
       \fi
     \end{beamercolorbox}
@@ -182,7 +182,7 @@
     \begin{beamercolorbox}[sep=8pt,left]{author}
       \usebeamerfont{author}\insertauthor
     \end{beamercolorbox}
-    \vskip0.5em\par
+    \vskip2.5em\par
     \begin{beamercolorbox}[sep=8pt,wd=\linewidth]{institute}
       \usebeamerfont{institute}\insertinstitute
       \hfill
@@ -208,12 +208,12 @@
       };
     \end{tikzpicture}%
   }%
-  \vspace{9em}
+  \vspace{8em}
   \begin{beamercolorbox}[sep=0pt,left]{sectionDivider}
     \usebeamerfont{frametitle}\insertsectionhead\par
   \end{beamercolorbox}
   \gradientline\par
-  \vspace{5.5em}
+  \vspace{5em}
   \setbeamercolor{footlinecolor}{fg=white}
   \begin{beamercolorbox}[ht=1em,sep=8pt,wd=\paperwidth,leftskip=0.5cm,rightskip=0.5cm]{footlinecolor}
     {\usebeamerfont{section in head/foot}\insertshortinstitute}
@@ -223,7 +223,7 @@
 }
 
 \setbeamertemplate{endpage}{%
-  \vspace{5.5em}
+  \vspace{4.5em}
   \begingroup
     \centering
     \begin{beamercolorbox}[sep=8pt,left]{title}
